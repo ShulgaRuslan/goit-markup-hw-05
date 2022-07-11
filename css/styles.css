@@ -16,6 +16,9 @@ html {
 *::after {
   box-sizing: inherit;
 }
+img {
+  display: block;
+}
 :root {
   --primery-text-color: #757575;
   --title-text-color: #212121;
@@ -28,6 +31,8 @@ html {
   --border--color-portfolio: #eeeeee;
   --border--color--clients: #afb1b8;
   --icon-color: #afb1b8;
+  --timing: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 body {
   background-color: var(--primary-bg-color);
@@ -104,10 +109,39 @@ header {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition:  250ms var(--timing);
 }
+.link {
+  position: relative;
+}
+
+.item.link.current { 
+  opacity: 1;
+  
+}
+.link.current::after{
+  opacity: 1;
+  
+  
+}
+.link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  bottom: 0;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+  opacity: 0;
+  
+}
+
 .site-nav a:hover,
 .site-nav a:focus {
   color: var(--accent-color);
+ 
+  
 }
 .site-nav .link.current {
   color: var(--accent-color);
@@ -116,15 +150,19 @@ header {
 .icon {
 fill: var(--primery-text-color);
 margin-right: 10px;
+transition:  250ms var(--timing-function);
 }
 .site-adress .link:hover .icon,
 .site-adress .link:focus .icon {
 fill:var(--accent-color);
+
 }
 
 .site-adress .link {
   display: flex;
   align-items: center;
+  transition: opacity 250ms,
+  var(--timing-function);
 }
 .item {
   justify-content: center;
@@ -159,6 +197,7 @@ fill:var(--accent-color);
 .site-adress a:hover,
 .site-adress a:focus {
   color: var(--accent-color);
+  
 }
 /*Hero*/
 .hero {
@@ -205,6 +244,7 @@ fill:var(--accent-color);
   text-align: center;
   letter-spacing: 0.06em;
   background-color: var(--accent-color);
+ 
 }
 .text-button {
   color: var(--primary-bg-color);
@@ -215,6 +255,56 @@ fill:var(--accent-color);
   background-color: var(--accent-color);
   color: var(--primary-bg-color);
 }
+/*Модальное окно*/
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ 
+}
+.modal {
+  position: fixed;
+  width: 528px;
+  height: 581px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-bg-color);
+  
+}
+.cross {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-bg-color);
+    
+}
+
+.close {
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    fill:;
+}
+
+
 /*оформление section*/
 
 .company {
@@ -306,6 +396,29 @@ fill:var(--accent-color);
 .occupation:not(:last-child) {
   margin-bottom: 0;
 }
+.decor {
+  position: relative;
+}
+.description {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 100%;
+  height: 70px;
+  
+  background: rgba(47, 48, 58, 0.8);
+}
+.text {
+  margin-top: 27px;
+  margin-bottom: 27px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--primary-bg-color);
+}
 /*оформление team*/
 .team {
   padding-bottom: 94px;
@@ -381,18 +494,23 @@ fill:var(--accent-color);
   height: 44px;
   border-radius: 50%;
   border: 2px solid transparent;
-  
+  transition:  250ms var(--timing); 
 }
 .ins {
   fill: var(--icon-color);
+  
 }
 .set:hover,
 .set:focus {
   background-color: var(--accent-color);
+   
+   
 }
 .set:hover .ins,
 .set:focus .ins {
   fill: var(--primary-bg-color);
+  
+ 
 }
 .gap:not(:last-child) {
 margin-right: 10px;
@@ -424,6 +542,8 @@ margin-right: 10px;
   
   border: 1px solid var(--icon-color);
   border-radius: 4px;
+  
+  
  
 }
 .last {
@@ -433,14 +553,19 @@ margin-right: 10px;
   justify-content: center;
   align-items: center;
   fill: var(--icon-color);
+  transition: 250ms var(--timing);
+  
+
 }
 .images-client:hover {
   border: 1px solid var(--accent-color);
-  color: var(--accent-color)
+  color: var(--accent-color);
+  
 }
 .last:hover .book,
 .last:focus .book {
   fill: var(--accent-color);
+  
 }
 
 
@@ -498,6 +623,7 @@ footer {
 .footer a:hover,
 .footer a:focus {
   color: var(--accent-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .gmail {
   margin-bottom: px;
@@ -535,11 +661,13 @@ margin-right: 10px;
     height: 44px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
+    transition:  250ms var(--timing);
 }
 .bench:hover,
 .bench:focus {
   background-color: var(--accent-color);
   fill: var(--primary-bg-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .jump {
   
@@ -547,6 +675,7 @@ margin-right: 10px;
 }
 .twit {
   fill: var(--primary-bg-color);
+ 
 }
 
 /*portfolio*/
@@ -575,11 +704,13 @@ margin-right: 10px;
   font-size: 16px;
   line-height: 1.62;
   text-align: center;
+  transition:  250ms var(--timing);
 }
 .filter:hover,
 .filter:focus {
   background-color: var(--accent-color);
   color: var(--primary-bg-color);
+  cursor: pointer;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
     0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
@@ -591,10 +722,43 @@ margin-right: 10px;
 }
 
 .portfolio {
+  
+  overflow: hidden;
   width: 370px;
   margin-right: 30px;
   margin-bottom: 30px;
+  
 }
+/*Оформление выезжающего окна */
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio:hover .overlay{
+  transform: translateY(-100%);
+  opacity: 1;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 294px;
+  opacity: 0;  
+  background: rgba(33, 150, 243, 0.9);
+  transform: translateY(0%);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+.paragrah {
+  padding: 63px 24px;
+font-weight: 400;
+font-size: 18px;
+line-height: 1.56;
+letter-spacing: 0.03em;
+text-align: center;
+
+color: var(--primary-bg-color);
+}
+
 .portfolio:nth-child(3n) {
   margin-right: 0;
 }
@@ -606,9 +770,11 @@ margin-right: 10px;
 }
 .portfolio:hover {
   cursor: pointer;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
      0px 4px 4px rgba(0, 0, 0, 0.06),
      1px 4px 6px rgba(0, 0, 0, 0.16);
+ 
+     
 }
 .characteristic {
   border: 1px solid var(--border--color-portfolio);
@@ -633,3 +799,4 @@ margin-right: 10px;
 a {
   text-decoration: none;
 }
+

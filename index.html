@@ -18,8 +18,8 @@
             <nav>
                 <ul class="site-nav list">
                     <li class="item"><a href="./index.html" class="link current">Cтудия</a></li>
-                    <li class="item"><a href="./portfolio.html">Портфолио</a></li>
-                    <li class="item"><a href="">Контакты</a></li>
+                    <li class="item"><a href="./portfolio.html" class="link">Портфолио</a></li>
+                    <li class="item"><a href="" class="link">Контакты</a></li>
                 </ul>
             </nav>
             <ul class="site-adress list">
@@ -27,7 +27,6 @@
                     <a class="link" href="mailto:info@devstudio.com"><svg class="icon" width="16" height="10">
                         <use href="./images/sprite.svg#icon-mail"></use>
                     </svg>info@devstudio.com
-                    
                     </a>
                 </a>
                 </li>
@@ -47,7 +46,19 @@
         <section class="hero section">
             <div class="container">
                 <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-                <button class="pointer" type="button"><span class="text-button">Заказать услугу</span></button>
+                <button class="pointer" data-modal-open type="button"><span class="text-button">Заказать услугу</span></button>
+                <div class="backdrop is-hidden" data-modal>
+                    <div class="modal">
+                        <div>
+                            <button class="cross" data-modal-close>
+                            <svg class="close" width="18" height="18">
+                                <use href="./images/sprite.svg#icon-close"></use>
+                            </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
             </div>    
         </section>
         <section class="section">
@@ -80,13 +91,28 @@
                 <h2 class="title-work">Чем мы занимаемся</h2>
                 <ul class="occupation list">
                     <li class="picture">
-                        <img src="./images/box1.jpg" alt="Управление" width="370" height="294">
+                        <div class="decor">
+                                <img src="./images/box1.jpg" alt="Управление" width="370" height="294">
+                            <div class="description">
+                                <p class="text">ДEСКТОПНЫЕ ПРИЛОЖЕНИЯ</p>
+                            </div>
+                        </div>
                     </li>
                     <li class="picture">
-                        <img src="./images/box2.jpg" alt="Сбор данных" width="370" height="294">
+                        <div class="decor">
+                            <img src="./images/box1.jpg" alt="Управление" width="370" height="294">
+                            <div class="description">
+                                <p class="text">МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ</p>
+                            </div>
+                        </div>
                     </li>
                     <li class="picture">
-                        <img src="./images/box3.jpg" alt="Анализ" width="370" height="294">
+                        <div class="decor">
+                            <img src="./images/box1.jpg" alt="Управление" width="370" height="294">
+                            <div class="description">
+                                <p class="text">ДИЗАЙНЕРСКИЕ РЕШЕНИЯ</p>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>    
@@ -359,7 +385,7 @@
             </div>
         </div>
     
-    
-    </footer>
-</body>
+     </footer>
+    <script src="./js/modal.js"></script>
+    </body>
 </html>
