@@ -120,9 +120,7 @@ header {
   
 }
 .link.current::after{
-  opacity: 1;
-  
-  
+  opacity: 1;  
 }
 .link::after {
   content: "";
@@ -134,6 +132,7 @@ header {
   border-radius: 2px;
   background-color: var(--accent-color);
   opacity: 0;
+  
   
 }
 
@@ -150,24 +149,24 @@ header {
 .icon {
 fill: var(--primery-text-color);
 margin-right: 10px;
-transition:  250ms var(--timing-function);
+
 }
 .site-adress .link:hover .icon,
 .site-adress .link:focus .icon {
 fill:var(--accent-color);
+
 
 }
 
 .site-adress .link {
   display: flex;
   align-items: center;
-  transition: opacity 250ms,
-  var(--timing-function);
-}
-.item {
-  justify-content: center;
+ transition:  2500ms var(--timing-function);
   
 }
+
+  
+
 /*site-adress*/
 .site-adress {
   display: flex;
@@ -193,11 +192,15 @@ fill:var(--accent-color);
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition:  2500ms var(--timing-function);
 }
 .site-adress a:hover,
 .site-adress a:focus {
   color: var(--accent-color);
-  
+.link {
+  transition:  2500ms var(--timing-function);
+
+}
 }
 /*Hero*/
 .hero {
@@ -260,6 +263,7 @@ fill:var(--accent-color);
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop {
   position: fixed;
